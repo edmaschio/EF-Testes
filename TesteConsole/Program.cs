@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructure.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,10 @@ namespace TesteConsole
     {
         static void Main(string[] args)
         {
-            using (var db = new TestesEFContext())
-            {
-                Setor _set = new Setor() { NomeSetor = "RH" };
-                Setor _set2 = new Setor() { NomeSetor = "CP" };
+            var db = new AppDataContext();
+
+            Setor _set = new Setor() { NomeSetor = "RH" };
+            Setor _set2 = new Setor() { NomeSetor = "CP" };
 
                 db.Setores.Add(_set);
                 db.Setores.Add(_set2);

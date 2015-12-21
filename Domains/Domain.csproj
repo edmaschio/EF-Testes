@@ -7,8 +7,8 @@
     <ProjectGuid>{91E75272-6604-4394-A193-349BC427AA6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domains</RootNamespace>
-    <AssemblyName>Domains</AssemblyName>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="Models\EntidadeBase.cs" />
     <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Ramal.cs" />
     <Compile Include="Models\Setor.cs" />
+    <Compile Include="Models\TipoRamal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
