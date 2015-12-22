@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Domain.Models;
 using System.Data.Entity.Infrastructure.Annotations;
+using Infraestructure.Models;
 
 namespace Infraestructure.Data.Map
 {
@@ -12,6 +12,7 @@ namespace Infraestructure.Data.Map
             ToTable("Pessoa");
 
             Property(x => x.ID)
+                .HasColumnName("PessoaId")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.NomePessoa)
@@ -24,6 +25,18 @@ namespace Infraestructure.Data.Map
             Property(x => x.Data)
                 .HasColumnName("DataManutencao")
                 .IsRequired();
+
+            HasRequired<Setor>(s => s.Setor)
+                .WithMany(s => s.Pessoas);
+
+            HasMany<Ramal>(s => s.Ramais)
+                .WithMany(c => c.Pessoas)
+                .Map(cs =>
+                        {
+                            cs.MapLeftKey("PessoaId");
+                            cs.MapRightKey("RamalId");
+                            cs.ToTable("PessoaRamal");
+                        });
         }
     }
 }

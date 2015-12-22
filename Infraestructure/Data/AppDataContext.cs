@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Models;
+﻿using System.Data.Entity;
 using Infraestructure.Data.Map;
+using Infraestructure.Models;
 
 namespace Infraestructure.Data
 {
     public class AppDataContext : DbContext
     {
-        public AppDataContext() : base()
+        public AppDataContext() : base("EF-Testes")
         {
-
+            Database.SetInitializer<AppDataContext>(new EFTestsDBInitializer<AppDataContext>());
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }
@@ -23,6 +18,7 @@ namespace Infraestructure.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PessoaMap());
+            modelBuilder.Configurations.Add(new SetorMap());
         }
     }
 }
