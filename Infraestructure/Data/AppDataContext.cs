@@ -8,7 +8,7 @@ namespace Infraestructure.Data
     {
         public AppDataContext() : base("EF-Testes")
         {
-            Database.SetInitializer<AppDataContext>(new EFTestsDBInitializer<AppDataContext>());
+            Database.SetInitializer<AppDataContext>(new EFTestsDBInitializer());
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }
