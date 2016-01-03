@@ -16,6 +16,7 @@ namespace Infraestructure.Data.Map
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.NomePessoa)
+                .HasColumnName("PessoaNome")
                 .HasMaxLength(60)
                 .IsRequired()
                 .HasColumnAnnotation(
