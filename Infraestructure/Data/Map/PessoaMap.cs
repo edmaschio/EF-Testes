@@ -24,7 +24,7 @@ namespace Infraestructure.Data.Map
                     new IndexAnnotation(new IndexAttribute("IX_NOMEPESSOA", 1) { IsUnique = true }));
 
             Property(x => x.Data)
-                .HasColumnName("DataManutencao")
+                .HasColumnName("DataManutencaoPessoa")
                 .IsRequired();
 
             HasRequired<Setor>(s => s.Setor)

@@ -14,45 +14,37 @@ namespace TesteConsole
         {
             var db = new AppDataContext();
 
-            /*
-            Setor _set = new Setor() { NomeSetor = "RH" };
-            Setor _set2 = new Setor() { NomeSetor = "CP" };
-
-
-            db.Setores.Add(_set);
-            db.Setores.Add(_set2);
-            db.SaveChanges();
-            
-            Console.WriteLine("Setor incluído com sucesso!");
-            */
-
             Console.WriteLine("Listando setores.");
             Console.WriteLine("-----------------");
 
-            var _setores = db.Setores;
+            var _setores = db.Setores.OrderBy(s => s.NomeSetor);
 
-                foreach (var s in _setores)
-                    Console.WriteLine("ID: " + s.ID.ToString() + " / " + s.NomeSetor);
+            foreach (var s in _setores)
+                Console.WriteLine("ID: " + s.ID.ToString() + " / " + s.NomeSetor);
 
-                Pessoa _pes = new Pessoa() { NomePessoa = "Ederson", Setor = _setores.FirstOrDefault() };
-                Pessoa _pes2 = new Pessoa() { NomePessoa = "Carlos", Setor = _setores.FirstOrDefault() };
+            Console.WriteLine();
+            Console.WriteLine("Listando Pessoas.");
+            Console.WriteLine("-----------------");
 
-                db.Pessoas.Add(_pes);
-                db.Pessoas.Add(_pes2);
-                db.SaveChanges();
+            foreach (var p in db.Pessoas.OrderBy(p => p.NomePessoa))
+            {
+                Console.WriteLine("ID: " + p.ID.ToString() + " / Nome: " +
+                    p.NomePessoa + " / Setor: " + p.Setor.NomeSetor +
+                    " / Data: " + p.Data);
+            }
 
-                Console.WriteLine("Listando Pessoas.");
-                Console.WriteLine("-----------------");
+            Console.WriteLine();
+            Console.WriteLine("Listando Ramais");
+            Console.WriteLine("---------------");
 
-                foreach (var p in db.Pessoas)
-                {
-                    Console.WriteLine("ID: " + p.ID.ToString() + " / Nome: " +
-                        p.NomePessoa + " / Setor: " + p.Setor.NomeSetor +
-                        " / Data: " + p.Data);
-                }
+            foreach (var r in db.Ramais)
+            {
+                Console.WriteLine("ID: " + r.ID.ToString() + " - Nro: " +
+                    r.NumeroRamal + " / Tipo: " + r.TipoRamal.ToString() + 
+                    " / Data: " + r.Data);
+            }
 
-
-                Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }

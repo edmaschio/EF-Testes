@@ -24,7 +24,7 @@ namespace Infraestructure.Data.Map
                 .IsRequired();
 
             Property(x => x.Data)
-                .HasColumnName("DataManutencao")
+                .HasColumnName("DataManutencaoSetor")
                 .IsRequired();
         }
     }
