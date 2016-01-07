@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructure", "Infraest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteConsole", "TesteConsole\TesteConsole.csproj", "{5FF463A8-50FE-4955-A724-5205B020A4E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{D7F55DB4-F699-4D5A-A112-C150CCB58FD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5FF463A8-50FE-4955-A724-5205B020A4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FF463A8-50FE-4955-A724-5205B020A4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FF463A8-50FE-4955-A724-5205B020A4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F55DB4-F699-4D5A-A112-C150CCB58FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F55DB4-F699-4D5A-A112-C150CCB58FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F55DB4-F699-4D5A-A112-C150CCB58FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F55DB4-F699-4D5A-A112-C150CCB58FD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
