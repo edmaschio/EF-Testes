@@ -19,6 +19,8 @@ namespace API
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigureWebApi(config);
 
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseWebApi(config);
         }
 
         public static void ConfigureWebApi(HttpConfiguration config)
@@ -31,6 +33,18 @@ namespace API
             var jsonSettings = formatters.JsonFormatter.SerializerSettings;
             jsonSettings.Formatting = Formatting.Indented;
             jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            // Modifica a serialização
+            formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }
