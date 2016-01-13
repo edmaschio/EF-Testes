@@ -13,6 +13,12 @@ namespace Infraestructure.Models
             Pessoas = new HashSet<Pessoa>();
         }
 
+        public Setor(string nome)
+        {
+            Pessoas = new HashSet<Pessoa>();
+            NomeSetor = nome;
+        }
+
         public string NomeSetor { get; set; }
 
         public virtual ICollection<Pessoa> Pessoas { get; set; }

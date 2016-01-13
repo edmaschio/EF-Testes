@@ -9,11 +9,13 @@ namespace Infraestructure.Contracts.Repositories
 {
     public interface ISetorRepository : IDisposable
     {
+        IEnumerable<Setor> BuscaTodos();
+        IEnumerable<Setor> Busca(int pular, int pegar);
         Setor Busca(string nome);
         Setor Busca(Guid id);
-        IEnumerable<Setor> Busca(int pular, int pegar);
-        void Cadastrar(Setor setor);
-        void Alterar(Setor setor);
-        void Excluir(Setor setor);
+        void Inclui(Setor setor);
+        void Altera(Setor setor);
+        void Exclui(Guid id);
+        void Exclui(Setor setor);
     }
 }

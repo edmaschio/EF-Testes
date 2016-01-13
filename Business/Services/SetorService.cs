@@ -35,12 +35,18 @@ namespace Business.Services
 
         public void Cadastrar(string nome)
         {
-            var temSetor = _repository;
+            var temSetor = _repository.Busca(nome);
+            if (temSetor != null)
+                throw new Exception("Nome duplicado!");
+
+            var setor = new Setor(nome);
+
+            _repository.Inclui(setor);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _repository.Dispose();
         }
     }
 }

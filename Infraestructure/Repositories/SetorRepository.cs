@@ -18,6 +18,11 @@ namespace Infraestructure.Repositories
             _context = context;
         }
 
+        public IEnumerable<Setor> BuscaTodos()
+        {
+            return _context.Setores;
+        }
+
         public Setor Busca(string nome)
         {
             return _context.Setores.Where(x => x.NomeSetor == nome).FirstOrDefault();
@@ -33,22 +38,27 @@ namespace Infraestructure.Repositories
             return _context.Setores.OrderBy(x => x.NomeSetor).Skip(pular).Take(pegar).ToList();
         }
 
-
-        public void Cadastrar(Setor setor)
+        public void Inclui(Setor setor)
         {
             _context.Setores.Add(setor);
             _context.SaveChanges();
         }
 
-        public void Alterar(Setor setor)
+        public void Altera(Setor setor)
         {
             _context.Entry<Setor>(setor).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 
-        public void Excluir(Setor setor)
+        public void Exclui(Setor setor)
         {
             _context.Setores.Remove(setor);
+            _context.SaveChanges();
+        }
+
+        public void Exclui(Guid id)
+        {
+            _context.Setores.Remove(_context.Setores.Where(x => x.ID == id).FirstOrDefault());
             _context.SaveChanges();
         }
 

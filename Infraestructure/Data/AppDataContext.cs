@@ -6,7 +6,7 @@ namespace Infraestructure.Data
 {
     public class AppDataContext : DbContext
     {
-        public AppDataContext() : base("EF-Testes")
+        public AppDataContext() : base("AppConnString")
         {
             Database.SetInitializer<AppDataContext>(new EFTestsDBInitializer());
         }
